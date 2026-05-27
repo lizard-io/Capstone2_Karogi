@@ -227,16 +227,6 @@ public class AddDrinkScreen {
             System.out.println("0) No add-ons");
             System.out.print("Enter your choice: ");
 
-        int addOnChoice = scanner.nextInt();
-        if (addOnChoice != 0) {
-            switch (addOnChoice) {
-                case 1: drink.addAddOn(new AddOn("Boba", true, 0.75)); break;
-                case 2: drink.addAddOn(new AddOn("Lychee Jelly", true, 0.75)); break;
-                case 3: drink.addAddOn(new AddOn("Grass Jelly", true, 0.75)); break;
-                case 4: drink.addAddOn(new AddOn("Extra Tea Shot", false, 0.50)); break;
-            }
-        }
-
         // Confirm
         System.out.println("\nDrink added: " + drink);
         System.out.println("Price: $" + drink.getPrice());

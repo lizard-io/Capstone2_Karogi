@@ -30,6 +30,10 @@ public class TeaDrink {
     public String getMilkOption() {return milkOption;}
     public List<AddOn> getAddOns() {return addOns;}
 
+    public void addAddOn(AddOn addOn) {
+        addOns.add(addOn);
+    }
+
     public double getPrice() {
         double basePrice = 0;
 
