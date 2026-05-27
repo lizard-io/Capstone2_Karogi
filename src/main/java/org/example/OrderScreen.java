@@ -25,7 +25,10 @@ public class OrderScreen {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Enter Drink"); break;
+                    AddDrinkScreen addDrinkScreen = new AddDrinkScreen();
+                    TeaDrink drink = addDrinkScreen.display();
+                    order.addDrink(drink);
+                    System.out.println("Drink added to your order!");break;
                 case 2:
                     System.out.println("Enter Loose Leaf Tea"); break;
                 case 3:

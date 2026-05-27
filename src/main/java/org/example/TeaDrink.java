@@ -12,7 +12,7 @@ public class TeaDrink {
     private String milkOption;
     private List<AddOn> addOns;
 
-    public TeaDrink(String drinkType, String size, String teaBase, String sweetnessLevel, String iceLevel, String milkOption, List<AddOn> addOns) {
+    public TeaDrink(String drinkType, String size, String teaBase, String sweetnessLevel, String iceLevel, String milkOption) {
         this.drinkType = drinkType;
         this.size = size;
         this.teaBase = teaBase;
