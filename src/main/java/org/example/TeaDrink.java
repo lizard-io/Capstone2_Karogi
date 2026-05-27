@@ -30,6 +30,23 @@ public class TeaDrink {
     public String getMilkOption() {return milkOption;}
     public List<AddOn> getAddOns() {return addOns;}
 
+    public double getPrice() {
+        double basePrice = 0;
+
+        switch (size) {
+            case "8oz":  basePrice = 2.50; break;
+            case "12oz": basePrice = 3.00; break;
+            case "16oz": basePrice = 3.75; break;
+            case "24oz": basePrice = 4.50; break;
+        }
+
+        // add up all add-on prices
+        for (AddOn addOn : addOns) {
+            basePrice += addOn.getPrice();
+        }
+
+        return basePrice;
+    }
     @Override
     public String toString(){
         return drinkType + " (" + size + ") - " + teaBase +
