@@ -30,13 +30,28 @@ public class OrderScreen {
                     order.addDrink(drink);
                     System.out.println("Drink added to your order!");break;
                 case 2:
-                    System.out.println("Enter Loose Leaf Tea"); break;
+                    AddLooseLeafTeaScreen addTeaScreen = new AddLooseLeafTeaScreen();
+                    LooseLeafTea tea = addTeaScreen.display();
+                    order.addLooseLeafTea(tea);
+                    System.out.println("Tea added to your order!");
+                    break;
                 case 3:
-                    System.out.println("Enter Snack"); break;
+                    AddSnackScreen addSnackScreen = new AddSnackScreen();
+                    SnackPairing snack = addSnackScreen.display();
+                    order.addSnack(snack);
+                    System.out.println("Snack added to your order!");
+                    break;
                 case 4:
-                    System.out.println("Book Tea Ceremony"); break;
+                    BookCeremonyScreen bookCeremonyScreen = new BookCeremonyScreen();
+                    CeremonyBooking booking = bookCeremonyScreen.display();
+                    order.addCeremony(booking);
+                    System.out.println("Ceremony booked!");
+                    break;
                 case 5:
-                    System.out.println("Checkout"); break;
+                    CheckoutScreen checkoutScreen = new CheckoutScreen();
+                    checkoutScreen.display(order);
+                    choice = 0;
+                    break;
                 case 0:
                     System.out.println("Order Cancelled"); break;
                 default:

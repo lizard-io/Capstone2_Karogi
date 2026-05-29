@@ -2,11 +2,10 @@ package org.example;
 
 public class SnackPairing {
     private String snackName;
-    private double price;
+    private double price = 2.50;
 
-    public SnackPairing(String snackName, double price) {
+    public SnackPairing(String snackName) {
         this.snackName = snackName;
-        this.price = price;
     }
 
     public String getSnackName() {return snackName;}

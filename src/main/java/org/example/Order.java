@@ -32,7 +32,7 @@ public class Order {
 
     public List<TeaDrink> getDrinks() {return drinks;}
 
-    public List<LooseLeafTea> getLooseleafTeas() {return looseleafTeas;}
+    public List<LooseLeafTea> getLooseLeafTeas() {return looseleafTeas;}
 
     public List<SnackPairing> getSnacks() {return snacks;}
 

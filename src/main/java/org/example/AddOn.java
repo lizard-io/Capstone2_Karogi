@@ -16,6 +16,6 @@ public class AddOn {
     public boolean isPremium() {return isPremium;}
     @Override
     public String toString() {
-        return name + " ($" + price + "')";
+        return name + " ($" + price + ")";
     }
 }

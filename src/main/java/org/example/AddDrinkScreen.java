@@ -42,17 +42,15 @@ public class AddDrinkScreen {
         System.out.print("Enter your choice: ");
 
         String size = "";
-        switch (scanner.nextInt()) {
-            case 1:
-                size = "8oz";break;
-            case 2:
-                size = "12oz";break;
-            case 3:
-                size = "16oz";break;
-            case 4:
-                size = "24oz";break;
-            default:
-                size = "12oz";
+        while (size.isEmpty()) {
+            switch (scanner.nextInt()) {
+                case 1: size = "8oz"; break;
+                case 2: size = "12oz"; break;
+                case 3: size = "16oz"; break;
+                case 4: size = "24oz"; break;
+                default:
+                    System.out.println("Invalid choice. Please enter 1, 2, 3 or 4:");
+            }
         }
 
         //Tea Base
@@ -190,9 +188,45 @@ public class AddDrinkScreen {
             TeaDrink drink = new TeaDrink(drinkType, size, teaBase, sweetnessLevel, iceLevel, milkOption);
 
             //Add Ons
-            System.out.println("==============================");
-            System.out.println("          Add-Ons             ");
-            System.out.println("==============================");
+        System.out.println("==============================");
+        System.out.println("          Add-Ons             ");
+        System.out.println("==============================");
+
+        if (drinkType.equals("Hot Tea")) {
+            System.out.println("1) Extra Tea Shot      (+$0.50)");
+            System.out.println("2) Whole Milk          (+$0.75)");
+            System.out.println("3) Oat Milk            (+$0.75)");
+            System.out.println("4) Almond Milk         (+$0.75)");
+            System.out.println("5) Coconut Milk        (+$0.75)");
+            System.out.println("0) No add-ons");
+            System.out.print("Enter your choice: ");
+
+            int addOnChoice = scanner.nextInt();
+            while (addOnChoice < 0 || addOnChoice > 5) {
+                System.out.println("Invalid choice. Please enter 0 to 5:");
+                addOnChoice = scanner.nextInt();
+            }
+            switch (addOnChoice) {
+                case 1:
+                    drink.addAddOn(new AddOn("Extra Tea Shot", false, 0.50));
+                    break;
+                case 2:
+                    drink.addAddOn(new AddOn("Whole Milk", false, 0.75));
+                    break;
+                case 3:
+                    drink.addAddOn(new AddOn("Oat Milk", true, 0.75));
+                    break;
+                case 4:
+                    drink.addAddOn(new AddOn("Almond Milk", true, 0.75));
+                    break;
+                case 5:
+                    drink.addAddOn(new AddOn("Coconut Milk", true, 0.75));
+                    break;
+                default:
+                    break;
+            }
+
+        } else {
             System.out.println("1) Boba/Tapioca Pearls (+$0.75)");
             System.out.println("2) Lychee Jelly        (+$0.75)");
             System.out.println("3) Grass Jelly         (+$0.75)");
@@ -201,22 +235,14 @@ public class AddDrinkScreen {
             System.out.print("Enter your choice: ");
 
             int addOnChoice = scanner.nextInt();
-            if (addOnChoice != 0) {
-                switch (addOnChoice) {
-                    case 1:
-                        drink.addAddOn(new AddOn("Boba", true, 0.75));
-                        break;
-                    case 2:
-                        drink.addAddOn(new AddOn("Lychee Jelly", true, 0.75));
-                        break;
-                    case 3:
-                        drink.addAddOn(new AddOn("Grass Jelly", true, 0.75));
-                        break;
-                    case 4:
-                        drink.addAddOn(new AddOn("Extra Tea Shot", false, 0.50));
-                        break;
-                }
+            switch (addOnChoice) {
+                case 1: drink.addAddOn(new AddOn("Boba", true, 0.75)); break;
+                case 2: drink.addAddOn(new AddOn("Lychee Jelly", true, 0.75)); break;
+                case 3: drink.addAddOn(new AddOn("Grass Jelly", true, 0.75)); break;
+                case 4: drink.addAddOn(new AddOn("Extra Tea Shot", false, 0.50)); break;
+                default: break;
             }
+        }
             System.out.println("==============================");
             System.out.println("          Add-Ons             ");
             System.out.println("==============================");
